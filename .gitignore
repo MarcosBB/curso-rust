@@ -1,0 +1,5 @@
+# Saída de compilação dos projetos Cargo
+target/
+
+# macOS
+.DS_Store
