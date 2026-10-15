@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="380" viewBox="0 0 780 380" font-family="Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="780" height="380" rx="14" fill="#ffffff"/>
+  <text x="30" y="40" font-size="20" font-weight="bold" fill="#111827">enum Shape: 24 bytes na stack (64 bits)</text>
+  <text x="30" y="64" font-size="15" fill="#4b5563">tag (qual variante está ativa) + espaço para a maior variante</text>
+
+  <!-- byte ruler -->
+  <g font-size="14" fill="#4b5563" text-anchor="middle">
+    <text x="190" y="100">0</text>
+    <text x="382" y="100">8</text>
+    <text x="574" y="100">16</text>
+    <text x="766" y="100" text-anchor="end">24</text>
+  </g>
+
+  <!-- Circle -->
+  <text x="30" y="143" font-size="16" fill="#111827" font-family="Menlo, Consolas, monospace">Circle { r }</text>
+  <rect x="190" y="115" width="192" height="44" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="286" y="143" font-size="15" text-anchor="middle" fill="#1e3a8a">tag = Circle</text>
+  <rect x="382" y="115" width="192" height="44" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="478" y="143" font-size="15" text-anchor="middle" fill="#1e3a8a">r: f64</text>
+  <rect x="574" y="115" width="192" height="44" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="670" y="143" font-size="15" text-anchor="middle" fill="#6b7280">sem uso</text>
+
+  <!-- Rect -->
+  <text x="30" y="203" font-size="16" fill="#111827" font-family="Menlo, Consolas, monospace">Rect { w, h }</text>
+  <rect x="190" y="175" width="192" height="44" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="286" y="203" font-size="15" text-anchor="middle" fill="#1e3a8a">tag = Rect</text>
+  <rect x="382" y="175" width="192" height="44" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="478" y="203" font-size="15" text-anchor="middle" fill="#1e3a8a">w: f64</text>
+  <rect x="574" y="175" width="192" height="44" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="670" y="203" font-size="15" text-anchor="middle" fill="#1e3a8a">h: f64</text>
+
+  <!-- Unit -->
+  <text x="30" y="263" font-size="16" fill="#111827" font-family="Menlo, Consolas, monospace">Unit</text>
+  <rect x="190" y="235" width="192" height="44" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="286" y="263" font-size="15" text-anchor="middle" fill="#1e3a8a">tag = Unit</text>
+  <rect x="382" y="235" width="384" height="44" fill="#f3f4f6" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="574" y="263" font-size="15" text-anchor="middle" fill="#6b7280">sem uso</text>
+
+  <text x="30" y="320" font-size="15" fill="#374151">Aqui o tag cabe em 1 byte; o resto do bloco é preenchimento para alinhar o f64.</text>
+  <text x="30" y="345" font-size="15" fill="#374151">Ilustrativo: o layout de um enum não é garantido e o compilador pode reorganizá-lo.</text>
+</svg>
