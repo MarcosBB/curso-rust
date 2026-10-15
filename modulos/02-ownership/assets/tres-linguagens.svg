@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="470" viewBox="0 0 760 470" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-escura" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="760" height="470" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">O que o sinal de = faz em cada linguagem</text>
+  <text x="300" y="62" font-weight="bold" fill="#3b82f6">variáveis</text>
+  <text x="530" y="62" font-weight="bold" fill="#f97316">dados no heap</text>
+
+  <!-- C++ -->
+  <rect x="16" y="74" width="728" height="128" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="32" y="100" font-weight="bold" fill="#0f172a">C++</text>
+  <text x="32" y="124" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">s2 = s1;</text>
+  <text x="32" y="144" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">s3 = std::move(s1);</text>
+  <text x="32" y="172" font-size="14" fill="#475569">= copia o buffer; std::move</text>
+  <text x="32" y="190" font-size="14" fill="#475569">esvazia s1, mas s1 continua viva</text>
+
+  <rect x="300" y="84" width="190" height="30" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="312" y="104" font-size="14" fill="#0f172a">s1: "" (vazia, mas viva)</text>
+  <rect x="300" y="122" width="190" height="30" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="312" y="142" font-size="14" fill="#0f172a">s2</text>
+  <rect x="300" y="160" width="190" height="30" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="312" y="180" font-size="14" fill="#0f172a">s3</text>
+  <g font-size="16" fill="#0f172a" text-anchor="middle">
+    <rect x="530" y="122" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="548" y="143">o</text>
+    <rect x="566" y="122" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="584" y="143">i</text>
+    <rect x="530" y="160" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="548" y="181">o</text>
+    <rect x="566" y="160" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="584" y="181">i</text>
+  </g>
+  <text x="614" y="142" font-size="14" fill="#475569">cópia de s1</text>
+  <text x="614" y="180" font-size="14" fill="#475569">buffer original</text>
+  <path d="M480,137 L526,137" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#seta-escura)"/>
+  <path d="M480,175 L526,175" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#seta-escura)"/>
+
+  <!-- Python -->
+  <rect x="16" y="314" width="0" height="0" fill="none"/>
+  <rect x="16" y="210" width="728" height="118" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="32" y="236" font-weight="bold" fill="#0f172a">Python</text>
+  <text x="32" y="260" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">b = a</text>
+  <text x="32" y="290" font-size="14" fill="#475569">= cria outro nome para</text>
+  <text x="32" y="308" font-size="14" fill="#475569">o mesmo objeto</text>
+
+  <rect x="300" y="226" width="110" height="30" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="312" y="246" font-size="14" fill="#0f172a">a</text>
+  <rect x="300" y="282" width="110" height="30" rx="6" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+  <text x="312" y="302" font-size="14" fill="#0f172a">b</text>
+  <rect x="530" y="238" width="190" height="62" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="544" y="262" font-family="Menlo, Consolas, monospace" font-size="15" fill="#0f172a">[1, 2, 3]</text>
+  <text x="544" y="288" font-size="14" fill="#475569">refcount = 2</text>
+  <path d="M400,241 C460,241 470,258 526,262" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#seta-escura)"/>
+  <path d="M400,297 C460,297 470,282 526,278" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#seta-escura)"/>
+
+  <!-- Rust -->
+  <rect x="16" y="336" width="728" height="118" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="32" y="362" font-weight="bold" fill="#0f172a">Rust</text>
+  <text x="32" y="386" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">let s2 = s1;</text>
+  <text x="32" y="416" font-size="14" fill="#475569">= move: a posse muda de mão</text>
+  <text x="32" y="434" font-size="14" fill="#475569">e s1 deixa de existir</text>
+
+  <rect x="300" y="352" width="190" height="30" rx="6" fill="#ffffff" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="312" y="372" font-size="14" fill="#6b7280">s1 (movido, inválido)</text>
+  <rect x="300" y="408" width="190" height="30" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="312" y="428" font-size="14" font-weight="bold" fill="#16a34a">s2 (dono)</text>
+  <g font-size="16" fill="#0f172a" text-anchor="middle">
+    <rect x="530" y="392" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="548" y="413">o</text>
+    <rect x="566" y="392" width="36" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="584" y="413">i</text>
+  </g>
+  <text x="614" y="412" font-size="14" fill="#475569">um buffer, um dono</text>
+  <path d="M490,367 C510,367 512,392 528,400" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <path d="M490,423 C508,423 512,414 526,411" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+</svg>

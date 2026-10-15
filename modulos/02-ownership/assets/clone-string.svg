@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="270" viewBox="0 0 640 270" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="640" height="270" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">let s2 = s1.clone();</text>
+  <text x="24" y="72" font-weight="bold" fill="#3b82f6">Stack</text>
+  <text x="420" y="72" font-weight="bold" fill="#f97316">Heap</text>
+
+  <rect x="24" y="84" width="200" height="66" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="108" font-weight="bold" fill="#16a34a">s1 (dono)</text>
+  <text x="36" y="134" font-size="14" fill="#0f172a">ptr · len 2 · cap 2</text>
+  <rect x="24" y="166" width="200" height="66" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="190" font-weight="bold" fill="#16a34a">s2 (dono)</text>
+  <text x="36" y="216" font-size="14" fill="#0f172a">ptr · len 2 · cap 2</text>
+
+  <g font-size="20" fill="#0f172a" text-anchor="middle">
+    <rect x="420" y="92" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="445" y="124">o</text>
+    <rect x="470" y="92" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="495" y="124">i</text>
+    <rect x="420" y="174" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="445" y="206">o</text>
+    <rect x="470" y="174" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="495" y="206">i</text>
+  </g>
+  <text x="532" y="122" font-size="14" fill="#475569">original</text>
+  <text x="532" y="204" font-size="14" fill="#475569">nova alocação</text>
+  <path d="M224,117 L416,117" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+  <path d="M224,199 L416,199" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+  <text x="24" y="256" font-size="14" fill="#475569">Dois donos, dois buffers: cada um libera o seu no fim do escopo.</text>
+</svg>

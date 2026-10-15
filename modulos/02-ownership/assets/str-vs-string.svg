@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="380" viewBox="0 0 780 380" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="seta-roxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="780" height="380" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">String é dona; &amp;str é uma vista emprestada</text>
+
+  <text x="24" y="72" font-weight="bold" fill="#3b82f6">Stack</text>
+  <!-- literal -->
+  <rect x="24" y="84" width="240" height="66" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="108" font-weight="bold" fill="#8b5cf6">literal: &amp;str</text>
+  <text x="36" y="134" font-size="14" fill="#0f172a">ptr · len 2</text>
+  <!-- s -->
+  <rect x="24" y="170" width="240" height="66" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="194" font-weight="bold" fill="#16a34a">s: String (dona)</text>
+  <text x="36" y="220" font-size="14" fill="#0f172a">ptr · len 9 · cap 9</text>
+  <!-- fatia -->
+  <rect x="24" y="256" width="240" height="66" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="280" font-weight="bold" fill="#8b5cf6">fatia: &amp;str = &amp;s[4..9]</text>
+  <text x="36" y="306" font-size="14" fill="#0f172a">ptr · len 5</text>
+
+  <!-- estático -->
+  <rect x="330" y="56" width="430" height="100" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="346" y="80" font-weight="bold" fill="#475569">Dados do executável (só leitura)</text>
+  <g font-size="18" fill="#0f172a" text-anchor="middle">
+    <rect x="350" y="96" width="36" height="44" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="368" y="124">o</text>
+    <rect x="386" y="96" width="36" height="44" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/><text x="404" y="124">i</text>
+  </g>
+
+  <!-- heap -->
+  <text x="330" y="196" font-weight="bold" fill="#f97316">Heap</text>
+  <g font-size="18" fill="#0f172a" text-anchor="middle">
+    <rect x="350" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="368" y="250">o</text>
+    <rect x="386" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="404" y="250">i</text>
+    <rect x="422" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="440" y="250">,</text>
+    <rect x="458" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="476" y="250" fill="#94a3b8">␣</text>
+    <rect x="494" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="512" y="250">m</text>
+    <rect x="530" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="548" y="250">u</text>
+    <rect x="566" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="584" y="250">n</text>
+    <rect x="602" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="620" y="250">d</text>
+    <rect x="638" y="222" width="36" height="44" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="656" y="250">o</text>
+  </g>
+  <path d="M496,214 v-8 h176 v8" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="584" y="196" font-size="14" fill="#8b5cf6" text-anchor="middle">a fatia enxerga só "mundo"</text>
+
+  <path d="M264,117 C300,117 310,118 346,118" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#seta-roxa)"/>
+  <path d="M264,203 C300,203 310,242 346,244" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+  <path d="M264,289 C380,289 500,300 510,270" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#seta-roxa)"/>
+
+  <text x="24" y="356" font-size="14" fill="#475569">Só s libera memória (o heap). As duas &amp;str apenas apontam para bytes que pertencem a outro lugar.</text>
+</svg>

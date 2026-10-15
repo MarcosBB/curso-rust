@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="320" viewBox="0 0 680 320" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="320" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">Partial move: let nome = p.nome;</text>
+
+  <text x="24" y="72" font-weight="bold" fill="#3b82f6">Stack</text>
+  <text x="470" y="72" font-weight="bold" fill="#f97316">Heap</text>
+
+  <!-- p -->
+  <rect x="24" y="84" width="260" height="140" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="2"/>
+  <text x="38" y="108" font-weight="bold" fill="#0f172a">p: Pessoa (parcialmente movida)</text>
+  <rect x="38" y="120" width="232" height="44" rx="6" fill="#ffffff" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="50" y="140" font-size="14" font-weight="bold" fill="#6b7280">p.nome (movido)</text>
+  <text x="50" y="157" font-size="14" fill="#6b7280">não pode ser usado</text>
+  <rect x="38" y="170" width="232" height="44" rx="6" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="50" y="190" font-size="14" font-weight="bold" fill="#16a34a">p.idade = 30</text>
+  <text x="50" y="207" font-size="14" fill="#0f172a">ainda pode ser lido</text>
+
+  <!-- nome -->
+  <rect x="24" y="240" width="260" height="56" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="38" y="263" font-weight="bold" fill="#16a34a">nome: String (dono)</text>
+  <text x="38" y="285" font-size="14" fill="#0f172a">ptr · len 3 · cap 3</text>
+
+  <g font-size="20" fill="#0f172a" text-anchor="middle">
+    <rect x="470" y="190" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="495" y="222">A</text>
+    <rect x="520" y="190" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="545" y="222">n</text>
+    <rect x="570" y="190" width="50" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/><text x="595" y="222">a</text>
+  </g>
+  <path d="M270,142 C380,142 420,190 468,204" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <path d="M284,268 C380,268 420,240 466,226" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#475569">
+    <text x="460" y="276">p.idade</text><text x="596" y="276">// ok</text>
+    <text x="460" y="298">let outra = p;</text><text x="596" y="298">// E0382</text>
+  </g>
+</svg>
