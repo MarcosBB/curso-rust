@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="420" viewBox="0 0 860 420" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <rect x="0" y="0" width="860" height="420" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">longest&lt;'a&gt;: 'a é a região em que os dois argumentos ainda valem</text>
+
+  <rect x="20" y="50" width="820" height="300" rx="10" fill="#ffffff" stroke="#e2e8f0"/>
+  <!-- cabeçalho das colunas -->
+  <g font-size="14" fill="#334155" text-anchor="middle">
+    <text x="626" y="74">string1</text>
+    <text x="700" y="74">string2</text>
+    <text x="780" y="74">'a / result</text>
+  </g>
+  <!-- linha 7 destacada (uso inválido) -->
+  <rect x="28" y="281" width="804" height="28" rx="5" fill="#f1f5f9"/>
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="36" y="104"><tspan fill="#94a3b8">1 </tspan>let string1 = String::from("uma string longa");</text>
+    <text x="36" y="136"><tspan fill="#94a3b8">2 </tspan>let result;</text>
+    <text x="36" y="168"><tspan fill="#94a3b8">3 </tspan>{</text>
+    <text x="36" y="200"><tspan fill="#94a3b8">4 </tspan><tspan x="86">let</tspan>  string2 = String::from("xyz");</text>
+    <text x="36" y="232"><tspan fill="#94a3b8">5 </tspan><tspan x="86">result</tspan>  = longest(string1.as_str(), string2.as_str());</text>
+    <text x="36" y="264"><tspan fill="#94a3b8">6 </tspan>}  <tspan fill="#64748b">// string2 é liberada aqui</tspan></text>
+    <text x="36" y="300"><tspan fill="#94a3b8">7 </tspan>println!("a maior é: {result}");</text>
+    <text x="36" y="332"><tspan fill="#94a3b8">8 </tspan>}  <tspan fill="#64748b">// fim de main</tspan></text>
+  </g>
+
+  <!-- string1: linhas 1-8 -->
+  <rect x="619" y="88" width="14" height="250" rx="7" fill="#16a34a"/>
+  <!-- string2: linhas 4-6 -->
+  <rect x="693" y="184" width="14" height="86" rx="7" fill="#16a34a"/>
+  <!-- 'a válido: linhas 5-6 -->
+  <rect x="773" y="216" width="14" height="54" rx="7" fill="#8b5cf6"/>
+  <!-- o que result exigiria: até a linha 7 -->
+  <rect x="773" y="270" width="14" height="36" rx="7" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="5 3"/>
+
+  <!-- explicação -->
+  <g font-size="14" fill="#0f172a">
+    <text x="24" y="376">A chamada empresta string1 e string2 com o mesmo 'a. O maior 'a possível é a interseção das duas regiões:</text>
+    <text x="24" y="396">linhas 5–6 (roxo). Mas result é usado na linha 7 (tracejado), depois que string2 morreu: E0597.</text>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="400" viewBox="0 0 740 400" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="seta-roxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="740" height="400" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">&amp;String x &amp;str: s = "borrow checker"</text>
+
+  <!-- Stack -->
+  <text x="24" y="66" font-weight="bold" fill="#3b82f6">Stack</text>
+  <rect x="24" y="78" width="240" height="68" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="102" font-weight="bold" fill="#16a34a">s: String (dono, 24 bytes)</text>
+  <text x="36" y="128" fill="#0f172a">ptr · len = 14 · cap = 14</text>
+
+  <rect x="24" y="170" width="240" height="60" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="194" font-weight="bold" fill="#8b5cf6">r = &amp;s: &amp;String (8 bytes)</text>
+  <text x="36" y="217" fill="#0f172a">ptr → o próprio s</text>
+
+  <rect x="24" y="250" width="240" height="60" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="274" font-weight="bold" fill="#8b5cf6">word = &amp;s[..6]: &amp;str (16 bytes)</text>
+  <text x="36" y="297" fill="#0f172a">ptr · len = 6</text>
+
+  <rect x="24" y="320" width="240" height="60" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="344" font-weight="bold" fill="#8b5cf6">tail = &amp;s[7..]: &amp;str (16 bytes)</text>
+  <text x="36" y="367" fill="#0f172a">ptr · len = 7</text>
+
+  <!-- seta r -> s (dentro da stack) -->
+  <path d="M264,200 C300,200 300,128 268,124" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#seta-roxa)"/>
+
+  <!-- Heap -->
+  <text x="300" y="66" font-weight="bold" fill="#f97316">Heap (14 bytes)</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="16" fill="#0f172a" text-anchor="middle">
+    <rect x="300" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="315" y="226">b</text>
+    <rect x="330" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="345" y="226">o</text>
+    <rect x="360" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="375" y="226">r</text>
+    <rect x="390" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="405" y="226">r</text>
+    <rect x="420" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="435" y="226">o</text>
+    <rect x="450" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="465" y="226">w</text>
+    <rect x="480" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="495" y="226">␣</text>
+    <rect x="510" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="525" y="226">c</text>
+    <rect x="540" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="555" y="226">h</text>
+    <rect x="570" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="585" y="226">e</text>
+    <rect x="600" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="615" y="226">c</text>
+    <rect x="630" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="645" y="226">k</text>
+    <rect x="660" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="675" y="226">e</text>
+    <rect x="690" y="200" width="30" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/><text x="705" y="226">r</text>
+  </g>
+  <g font-size="14" fill="#64748b" text-anchor="middle">
+    <text x="320" y="194">0</text><text x="495" y="194">6</text><text x="525" y="194">7</text><text x="705" y="194">13</text>
+  </g>
+  <!-- colchetes das fatias -->
+  <path d="M302,250 L302,258 L478,258 L478,250" fill="none" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="390" y="278" font-size="14" fill="#8b5cf6" text-anchor="middle">word (len 6)</text>
+  <path d="M512,250 L512,258 L718,258 L718,250" fill="none" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="615" y="278" font-size="14" fill="#8b5cf6" text-anchor="middle">tail (len 7)</text>
+
+  <!-- setas para o heap -->
+  <path d="M264,112 C288,112 298,160 304,196" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+  <path d="M264,290 C290,300 305,290 312,262" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#seta-roxa)"/>
+  <path d="M264,355 C420,370 520,330 523,262" fill="none" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#seta-roxa)"/>
+
+  <text x="300" y="100" font-size="14" fill="#334155">&amp;String aponta para o struct String (que aponta</text>
+  <text x="300" y="118" font-size="14" fill="#334155">para o heap). &amp;str é um fat pointer: aponta</text>
+  <text x="300" y="136" font-size="14" fill="#334155">direto para os bytes e carrega o tamanho.</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="380" viewBox="0 0 860 380" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <rect x="0" y="0" width="860" height="380" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">Regiões de empréstimo: da criação até o último uso (NLL)</text>
+
+  <!-- ===== Painel esquerdo: compila ===== -->
+  <rect x="20" y="52" width="400" height="250" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="36" y="78" font-weight="bold" fill="#16a34a">✓ compila</text>
+  <g font-size="14" fill="#334155" text-anchor="middle">
+    <text x="307" y="78">v</text>
+    <text x="341" y="78">&amp;v</text>
+    <text x="381" y="78">&amp;mut v</text>
+  </g>
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="36" y="112"><tspan fill="#94a3b8">1 </tspan>let mut v = vec![1, 2, 3];</text>
+    <text x="36" y="146"><tspan fill="#94a3b8">2 </tspan>let first = &amp;v[0];</text>
+    <text x="36" y="180"><tspan fill="#94a3b8">3 </tspan>println!("{first}");</text>
+    <text x="36" y="214"><tspan fill="#94a3b8">4 </tspan>v.push(4);</text>
+    <text x="36" y="248"><tspan fill="#94a3b8">5 </tspan>println!("{v:?}");</text>
+  </g>
+  <!-- barras -->
+  <rect x="300" y="94" width="14" height="164" rx="7" fill="#16a34a"/>
+  <rect x="334" y="128" width="14" height="62" rx="7" fill="#8b5cf6"/>
+  <rect x="374" y="196" width="14" height="28" rx="7" fill="#dc2626"/>
+  <text x="36" y="284" font-size="14" fill="#334155">a barra roxa termina antes da vermelha começar</text>
+
+  <!-- ===== Painel direito: E0502 ===== -->
+  <rect x="440" y="52" width="400" height="250" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+  <text x="456" y="78" font-weight="bold" fill="#dc2626">✗ error[E0502]</text>
+  <g font-size="14" fill="#334155" text-anchor="middle">
+    <text x="727" y="78">v</text>
+    <text x="761" y="78">&amp;v</text>
+    <text x="801" y="78">&amp;mut v</text>
+  </g>
+  <!-- faixa de conflito na linha 3 -->
+  <rect x="448" y="163" width="384" height="26" rx="5" fill="#fee2e2"/>
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="456" y="112"><tspan fill="#94a3b8">1 </tspan>let mut v = vec![1, 2, 3];</text>
+    <text x="456" y="146"><tspan fill="#94a3b8">2 </tspan>let first = &amp;v[0];</text>
+    <text x="456" y="180"><tspan fill="#94a3b8">3 </tspan>v.push(4);</text>
+    <text x="456" y="214"><tspan fill="#94a3b8">4 </tspan>println!("{first}");</text>
+  </g>
+  <rect x="720" y="94" width="14" height="130" rx="7" fill="#16a34a"/>
+  <rect x="754" y="128" width="14" height="96" rx="7" fill="#8b5cf6"/>
+  <rect x="794" y="162" width="14" height="28" rx="7" fill="#dc2626"/>
+  <text x="456" y="250" font-size="14" fill="#0f172a">na linha 3, &amp;v e &amp;mut v estão vivas</text>
+  <text x="456" y="270" font-size="14" fill="#0f172a">ao mesmo tempo: conflito</text>
+
+  <!-- legenda -->
+  <g font-size="14" fill="#0f172a">
+    <rect x="24" y="326" width="14" height="14" rx="3" fill="#16a34a"/>
+    <text x="46" y="338">dono vivo</text>
+    <rect x="150" y="326" width="14" height="14" rx="3" fill="#8b5cf6"/>
+    <text x="172" y="338">empréstimo &amp; vivo (criação → último uso)</text>
+    <rect x="490" y="326" width="14" height="14" rx="3" fill="#dc2626"/>
+    <text x="512" y="338">empréstimo &amp;mut (aqui, só durante o push)</text>
+    <text x="24" y="364" fill="#334155">O fim do bloco não importa: o que conta é a última linha em que a referência é usada.</text>
+  </g>
+</svg>

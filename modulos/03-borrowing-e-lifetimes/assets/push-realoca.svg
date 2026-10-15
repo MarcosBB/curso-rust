@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="330" viewBox="0 0 680 330" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-verde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="seta-roxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="680" height="330" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">first = &amp;v[0]; v.push(4); — se o Rust deixasse</text>
+
+  <!-- Stack -->
+  <text x="24" y="70" font-weight="bold" fill="#3b82f6">Stack</text>
+  <rect x="24" y="82" width="230" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="106" font-weight="bold" fill="#16a34a">v: Vec&lt;i32&gt; (dono)</text>
+  <text x="36" y="130" fill="#0f172a">ptr  ·  len = 4  ·  cap = 6</text>
+  <text x="36" y="151" font-size="14" fill="#334155">o push trocou o ptr</text>
+
+  <rect x="24" y="190" width="230" height="80" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="36" y="214" font-weight="bold" fill="#8b5cf6">first: &amp;i32</text>
+  <text x="36" y="238" fill="#0f172a">ptr (endereço antigo)</text>
+  <text x="36" y="259" font-size="14" fill="#334155">ninguém avisou a first</text>
+
+  <!-- Heap -->
+  <text x="380" y="70" font-weight="bold" fill="#f97316">Heap</text>
+  <!-- buffer novo -->
+  <g font-size="18" fill="#0f172a">
+    <rect x="380" y="90" width="44" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="397" y="121">1</text>
+    <rect x="424" y="90" width="44" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="441" y="121">2</text>
+    <rect x="468" y="90" width="44" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="485" y="121">3</text>
+    <rect x="512" y="90" width="44" height="50" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="529" y="121">4</text>
+    <rect x="556" y="90" width="44" height="50" rx="6" fill="#ffffff" stroke="#f97316" stroke-width="2" stroke-dasharray="4 3"/>
+    <rect x="600" y="90" width="44" height="50" rx="6" fill="#ffffff" stroke="#f97316" stroke-width="2" stroke-dasharray="4 3"/>
+  </g>
+  <text x="380" y="160" font-size="14" fill="#334155">buffer novo (cap = 6), com os dados copiados</text>
+
+  <!-- buffer antigo -->
+  <g font-size="18" fill="#6b7280">
+    <rect x="380" y="200" width="50" height="50" rx="6" fill="#f1f5f9" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="400" y="231">1</text>
+    <rect x="430" y="200" width="50" height="50" rx="6" fill="#f1f5f9" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="450" y="231">2</text>
+    <rect x="480" y="200" width="50" height="50" rx="6" fill="#f1f5f9" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+    <text x="500" y="231">3</text>
+  </g>
+  <text x="380" y="272" font-size="14" fill="#6b7280">buffer antigo (cap = 3): liberado pelo push</text>
+
+  <!-- setas -->
+  <path d="M254,122 C310,122 330,115 376,115" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta-verde)"/>
+  <path d="M254,230 C310,230 330,225 376,225" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#seta-roxa)"/>
+
+  <text x="24" y="304" font-size="14" fill="#0f172a">Em C++ isto compila e lê memória liberada. Em Rust, o push nem chega a compilar (E0502):</text>
+  <text x="24" y="322" font-size="14" fill="#0f172a">enquanto first estiver viva, v não pode ser alterado.</text>
+</svg>
