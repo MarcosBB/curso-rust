@@ -34,7 +34,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | # | Módulo | Assunto |
 |---|---|---|
 | 00 | [Introdução e ferramentas](modulos/00-introducao/README.md) | rustup, Cargo, clippy, rustfmt, como ler erros do compilador |
-| 01 | Tour da sintaxe | expressões, tipos, funções, e o kit mínimo: `Vec`, `HashMap`, closures, módulos, testes |
+| 01 | [Tour da sintaxe](modulos/01-tour-da-sintaxe/README.md) | expressões, tipos, funções, e o kit mínimo: `Vec`, `HashMap`, closures, módulos, testes |
 | 02 | Ownership | move, `Copy` x `Clone`, RAII, `String` x `&str`, UTF-8 |
 | 03 | Borrowing e lifetimes | `&T` e `&mut T`, borrow checker, slices, anotações de lifetime |
 | 04 | Structs, enums e pattern matching | tipos algébricos, `Option`, `match`, let chains |
