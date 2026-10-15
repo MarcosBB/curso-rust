@@ -35,10 +35,10 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 |---|---|---|
 | 00 | [Introdução e ferramentas](modulos/00-introducao/README.md) | rustup, Cargo, clippy, rustfmt, como ler erros do compilador |
 | 01 | [Tour da sintaxe](modulos/01-tour-da-sintaxe/README.md) | expressões, tipos, funções, e o kit mínimo: `Vec`, `HashMap`, closures, módulos, testes |
-| 02 | Ownership | move, `Copy` x `Clone`, RAII, `String` x `&str`, UTF-8 |
-| 03 | Borrowing e lifetimes | `&T` e `&mut T`, borrow checker, slices, anotações de lifetime |
-| 04 | Structs, enums e pattern matching | tipos algébricos, `Option`, `match`, let chains |
-| 05 | Tratamento de erros | `Result`, `?`, erros customizados, `thiserror` e `anyhow` |
+| 02 | [Ownership](modulos/02-ownership/README.md) | move, `Copy` x `Clone`, RAII, `String` x `&str`, UTF-8 |
+| 03 | [Borrowing e lifetimes](modulos/03-borrowing-e-lifetimes/README.md) | `&T` e `&mut T`, borrow checker, slices, anotações de lifetime |
+| 04 | [Structs, enums e pattern matching](modulos/04-structs-enums-e-patterns/README.md) | tipos algébricos, `Option`, `match`, let chains |
+| 05 | [Tratamento de erros](modulos/05-tratamento-de-erros/README.md) | `Result`, `?`, erros customizados, `thiserror` e `anyhow` |
 | 06 | Traits e generics | trait bounds, `impl Trait`, `dyn Trait`, traits da std |
 | 07 | Coleções, iteradores e closures | coleções da std, `Fn`/`FnMut`/`FnOnce`, iteradores |
 | 08 | Módulos, crates e organização | visibilidade, workspaces, features, SemVer, documentação |
@@ -57,7 +57,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 
 | # | Projeto | Depois do módulo |
 |---|---|---|
-| 1 | `minigrep`: busca em arquivos pela linha de comando | 05 |
+| 1 | [`minigrep`](projetos/01-minigrep/README.md): busca em arquivos pela linha de comando | 05 |
 | 2 | Biblioteca de parsing com testes | 09 |
 | 3 | Gerenciador de tarefas em CLI com persistência em JSON | 09 |
 | 4 | Processador paralelo de arquivos | 11 |
