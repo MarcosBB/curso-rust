@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="500" viewBox="0 0 820 500" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="seta-roxa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="820" height="500" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- Lado esquerdo: monomorfização -->
+  <text x="24" y="36" font-size="17" font-weight="bold" fill="#0f172a">Generics: dispatch estático</text>
+  <text x="24" y="58" font-size="14" fill="#475569">o compilador gera uma cópia por tipo</text>
+
+  <rect x="24" y="76" width="350" height="44" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="38" y="104" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">fn mostra&lt;T: Display&gt;(x: T)</text>
+
+  <path d="M199,122 L199,150" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="210" y="142" font-size="14" fill="#475569" font-style="italic">compilação</text>
+
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <rect x="24" y="160" width="190" height="40" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="38" y="185">mostra::&lt;i32&gt;</text>
+    <rect x="24" y="210" width="190" height="40" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="38" y="235">mostra::&lt;&amp;str&gt;</text>
+    <rect x="24" y="260" width="190" height="40" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
+    <text x="38" y="285">mostra::&lt;f64&gt;</text>
+    <text x="268" y="185">mostra(1)</text>
+    <text x="268" y="235">mostra("a")</text>
+    <text x="268" y="285">mostra(2.5)</text>
+  </g>
+  <path d="M262,180 L218,180" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#seta)"/>
+  <path d="M262,230 L218,230" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#seta)"/>
+  <path d="M262,280 L218,280" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#seta)"/>
+
+  <text x="24" y="340" font-size="14" fill="#334155">cada chamada vai direto para a sua cópia</text>
+  <text x="24" y="360" font-size="14" fill="#334155">(e pode virar inlining)</text>
+  <text x="24" y="472" font-size="14" fill="#0f172a"><tspan font-weight="bold">custo:</tspan> binário maior, compilação mais lenta</text>
+
+  <!-- divisória -->
+  <line x1="404" y1="24" x2="404" y2="476" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+  <!-- Lado direito: dyn -->
+  <text x="430" y="36" font-size="17" font-weight="bold" fill="#0f172a">dyn Trait: dispatch dinâmico</text>
+  <text x="430" y="58" font-size="14" fill="#475569">uma cópia só, que consulta a vtable</text>
+
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="430" y="96">mostra_dyn(&amp;1)</text>
+    <text x="430" y="118">mostra_dyn(&amp;"a")</text>
+    <text x="430" y="140">mostra_dyn(&amp;2.5)</text>
+  </g>
+  <path d="M640,96 C680,96 690,130 690,160" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#seta)"/>
+
+  <rect x="430" y="164" width="366" height="44" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="444" y="192" font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">fn mostra_dyn(x: &amp;dyn Display)</text>
+  <text x="700" y="128" font-size="14" fill="#475569">a mesma</text><text x="700" y="146" font-size="14" fill="#475569">função</text>
+
+  <!-- fat pointer -->
+  <text x="430" y="238" font-size="14" font-weight="bold" fill="#8b5cf6">x é um fat pointer (16 bytes)</text>
+  <rect x="430" y="248" width="110" height="38" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="446" y="272" fill="#0f172a">dados</text>
+  <rect x="540" y="248" width="110" height="38" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="556" y="272" fill="#0f172a">vtable</text>
+
+  <path d="M595,288 L595,318" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#seta-roxa)"/>
+
+  <!-- vtables -->
+  <g font-size="14" fill="#0f172a">
+    <rect x="430" y="326" width="366" height="34" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="444" y="348">vtable de i32 → <tspan font-family="Menlo, Consolas, monospace">&lt;i32 as Display&gt;::fmt</tspan></text>
+    <rect x="430" y="366" width="366" height="34" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="444" y="388">vtable de &amp;str → <tspan font-family="Menlo, Consolas, monospace">&lt;&amp;str as Display&gt;::fmt</tspan></text>
+    <rect x="430" y="406" width="366" height="34" rx="6" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <text x="444" y="428">vtable de f64 → <tspan font-family="Menlo, Consolas, monospace">&lt;f64 as Display&gt;::fmt</tspan></text>
+  </g>
+  <text x="664" y="304" font-size="14" fill="#334155">uma por tipo,</text>
+  <text x="664" y="320" font-size="14" fill="#334155">escolhida na chamada</text>
+  <text x="430" y="472" font-size="14" fill="#0f172a"><tspan font-weight="bold">custo:</tspan> uma indireção por chamada, sem inlining</text>
+</svg>

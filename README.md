@@ -39,7 +39,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 03 | [Borrowing e lifetimes](modulos/03-borrowing-e-lifetimes/README.md) | `&T` e `&mut T`, borrow checker, slices, anotações de lifetime |
 | 04 | [Structs, enums e pattern matching](modulos/04-structs-enums-e-patterns/README.md) | tipos algébricos, `Option`, `match`, let chains |
 | 05 | [Tratamento de erros](modulos/05-tratamento-de-erros/README.md) | `Result`, `?`, erros customizados, `thiserror` e `anyhow` |
-| 06 | Traits e generics | trait bounds, `impl Trait`, `dyn Trait`, traits da std |
+| 06 | [Traits e generics](modulos/06-traits-e-generics/README.md) | trait bounds, `impl Trait`, `dyn Trait`, traits da std |
 | 07 | Coleções, iteradores e closures | coleções da std, `Fn`/`FnMut`/`FnOnce`, iteradores |
 | 08 | Módulos, crates e organização | visibilidade, workspaces, features, SemVer, documentação |
 | 09 | Testes e qualidade | testes unitários, de integração e doctests, clippy, CI |

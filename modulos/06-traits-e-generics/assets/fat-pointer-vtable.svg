@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="600" viewBox="0 0 860 600" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta-azul" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="seta-laranja" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f97316"/>
+    </marker>
+    <marker id="seta-cinza" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="600" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">Vec&lt;Box&lt;dyn Forma&gt;&gt; na memória</text>
+
+  <!-- Stack -->
+  <text x="24" y="70" font-weight="bold" fill="#3b82f6">Stack</text>
+  <rect x="24" y="82" width="200" height="86" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="2.5"/>
+  <text x="36" y="106" font-weight="bold" fill="#0f172a">formas: Vec</text>
+  <text x="36" y="130" fill="#0f172a">ptr</text>
+  <text x="36" y="154" fill="#0f172a">len = 2 · cap = 2</text>
+  <path d="M90,126 C150,126 200,126 262,126" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#seta-azul)"/>
+
+  <!-- Heap: buffer de fat pointers -->
+  <text x="270" y="70" font-weight="bold" fill="#f97316">Heap</text>
+  <text x="330" y="70" font-size="14" fill="#334155">buffer do Vec: dois fat pointers (16 bytes cada)</text>
+  <g fill="#0f172a">
+    <rect x="270" y="82" width="110" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="282" y="107">[0] dados</text>
+    <rect x="380" y="82" width="110" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="394" y="107">vtable</text>
+    <rect x="270" y="122" width="110" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="282" y="147">[1] dados</text>
+    <rect x="380" y="122" width="110" height="40" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+    <text x="394" y="147">vtable</text>
+  </g>
+    
+  <!-- Heap: valores -->
+  <rect x="40" y="228" width="200" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="52" y="252" font-weight="bold" fill="#0f172a">Quadrado (8 bytes)</text>
+  <text x="52" y="276" fill="#0f172a">lado = 2.0</text>
+  <rect x="270" y="228" width="200" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="282" y="252" font-weight="bold" fill="#0f172a">Circulo (8 bytes)</text>
+  <text x="282" y="276" fill="#0f172a">raio = 1.0</text>
+  <text x="40" y="312" font-size="14" fill="#334155">os valores não têm campo escondido: são só os dados</text>
+
+  <path d="M270,92 C200,92 150,160 140,224" fill="none" stroke="#f97316" stroke-width="2.2" marker-end="url(#seta-laranja)"/>
+  <path d="M325,162 C330,190 360,200 362,224" fill="none" stroke="#f97316" stroke-width="2.2" marker-end="url(#seta-laranja)"/>
+
+  <!-- Memória estática: vtables -->
+  <text x="530" y="200" font-weight="bold" fill="#475569">Memória estática (somente leitura)</text>
+  <rect x="530" y="212" width="300" height="130" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="544" y="236" font-weight="bold" fill="#0f172a">vtable de Quadrado como Forma</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="544" y="262">drop · size = 8 · align = 8</text>
+    <text x="544" y="286">area → Quadrado::area</text>
+    <text x="544" y="310">nome → Quadrado::nome</text>
+    <text x="544" y="334">fmt  → &lt;Quadrado as Debug&gt;</text>
+  </g>
+  <rect x="530" y="356" width="300" height="130" rx="8" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <text x="544" y="380" font-weight="bold" fill="#0f172a">vtable de Circulo como Forma</text>
+  <g font-family="Menlo, Consolas, monospace" font-size="14" fill="#0f172a">
+    <text x="544" y="406">drop · size = 8 · align = 8</text>
+    <text x="544" y="430">area → Circulo::area</text>
+    <text x="544" y="454">nome → Circulo::nome</text>
+    <text x="544" y="478">fmt  → &lt;Circulo as Debug&gt;</text>
+  </g>
+
+  <path d="M490,102 C512,102 506,250 526,250" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#seta-cinza)"/>
+  <path d="M490,142 C510,142 504,400 526,400" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#seta-cinza)"/>
+
+  <text x="40" y="360" font-size="14" fill="#334155">f.area() com f: &amp;dyn Forma:</text>
+  <text x="40" y="382" font-size="14" fill="#334155">1. lê o ponteiro da vtable no fat pointer</text>
+  <text x="40" y="404" font-size="14" fill="#334155">2. pega a entrada area</text>
+  <text x="40" y="426" font-size="14" fill="#334155">3. chama com o ponteiro de dados como &amp;self</text>
+  <text x="40" y="460" font-size="14" fill="#64748b">(o layout exato da vtable não é garantido)</text>
+
+  <!-- comparação C++ -->
+  <line x1="24" y1="504" x2="836" y2="504" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="24" y="530" font-weight="bold" fill="#0f172a">C++ (virtual)</text>
+  <rect x="140" y="514" width="70" height="26" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="150" y="532" font-size="14" fill="#0f172a">vptr</text>
+  <rect x="210" y="514" width="90" height="26" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+  <text x="220" y="532" font-size="14" fill="#0f172a">lado</text>
+  <text x="314" y="532" font-size="14" fill="#334155">o ponteiro da vtable fica dentro de todo objeto, sempre</text>
+
+  <text x="24" y="574" font-weight="bold" fill="#0f172a">Rust (dyn)</text>
+  <rect x="140" y="558" width="70" height="26" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="150" y="576" font-size="14" fill="#0f172a">dados</text>
+  <rect x="210" y="558" width="90" height="26" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="220" y="576" font-size="14" fill="#0f172a">vtable</text>
+  <text x="314" y="576" font-size="14" fill="#334155">vai no ponteiro, só quando você pede dyn; o objeto não muda</text>
+</svg>
