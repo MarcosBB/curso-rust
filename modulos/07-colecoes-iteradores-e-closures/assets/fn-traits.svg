@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="440" viewBox="0 0 760 440" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="760" height="440" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="18" font-weight="bold" fill="#0f172a">Toda Fn é FnMut, e toda FnMut é FnOnce</text>
+
+  <!-- FnOnce -->
+  <rect x="24" y="54" width="500" height="362" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="44" y="82" font-weight="bold" font-size="17" fill="#16a34a">FnOnce: call_once(self)</text>
+  <text x="44" y="104" fill="#0f172a">pode ser chamada pelo menos uma vez (toda closure)</text>
+  <text x="44" y="126" font-size="14" fill="#334155">só esta: move algo para fora do corpo · ex.: || nome</text>
+  <text x="44" y="146" font-size="14" fill="#334155">pedem: unwrap_or_else, thread::spawn</text>
+
+  <!-- FnMut -->
+  <rect x="44" y="164" width="460" height="232" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="64" y="192" font-weight="bold" font-size="17" fill="#dc2626">FnMut: call_mut(&amp;mut self)</text>
+  <text x="64" y="214" fill="#0f172a">pode ser chamada várias vezes</text>
+  <text x="64" y="236" font-size="14" fill="#334155">só esta: altera o capturado · ex.: || n += 1</text>
+  <text x="64" y="256" font-size="14" fill="#334155">pedem: map, filter, retain, sort_by_key, for_each</text>
+
+  <!-- Fn -->
+  <rect x="64" y="274" width="420" height="102" rx="12" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="84" y="302" font-weight="bold" font-size="17" fill="#8b5cf6">Fn: call(&amp;self)</text>
+  <text x="84" y="324" fill="#0f172a">só lê o capturado · ex.: |x| x + k</text>
+  <text x="84" y="346" font-size="14" fill="#334155">pedem: quem chama por &amp;self ou de várias threads</text>
+
+  <!-- notas laterais -->
+  <rect x="544" y="54" width="196" height="150" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="558" y="80" font-weight="bold" fill="#0f172a">Quem recebe</text>
+  <text x="558" y="102" font-size="14" fill="#334155">uma closure: peça o</text>
+  <text x="558" y="122" font-size="14" fill="#334155">conjunto maior que</text>
+  <text x="558" y="142" font-size="14" fill="#334155">funcionar (FnOnce,</text>
+  <text x="558" y="162" font-size="14" fill="#334155">depois FnMut). Assim</text>
+  <text x="558" y="182" font-size="14" fill="#334155">aceita mais closures.</text>
+  <rect x="544" y="266" width="196" height="150" rx="12" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="558" y="292" font-weight="bold" fill="#0f172a">Quem escreve</text>
+  <text x="558" y="314" font-size="14" fill="#334155">a closure: tente ficar</text>
+  <text x="558" y="334" font-size="14" fill="#334155">no menor (Fn). Uma</text>
+  <text x="558" y="354" font-size="14" fill="#334155">Fn serve onde se pede</text>
+  <text x="558" y="374" font-size="14" fill="#334155">qualquer uma das três.</text>
+</svg>
