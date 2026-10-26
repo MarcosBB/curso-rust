@@ -42,7 +42,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 06 | [Traits e generics](modulos/06-traits-e-generics/README.md) | trait bounds, `impl Trait`, `dyn Trait`, traits da std |
 | 07 | [Coleções, iteradores e closures](modulos/07-colecoes-iteradores-e-closures/README.md) | coleções da std, `Fn`/`FnMut`/`FnOnce`, iteradores |
 | 08 | [Módulos, crates e organização](modulos/08-modulos-e-crates/README.md) | visibilidade, workspaces, features, SemVer, documentação |
-| 09 | Testes e qualidade | testes unitários, de integração e doctests, clippy, CI |
+| 09 | [Testes e qualidade](modulos/09-testes-e-qualidade/README.md) | testes unitários, de integração e doctests, clippy, CI |
 | 10 | Smart pointers | `Box`, `Rc`, `RefCell`, `Weak`, `Cow`, `Deref` e `Drop` |
 | 11 | Concorrência | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
 | 12 | Programação assíncrona | `async`/`await`, tokio, `Pin`, cancelamento |
@@ -58,8 +58,8 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | # | Projeto | Depois do módulo |
 |---|---|---|
 | 1 | [`minigrep`](projetos/01-minigrep/README.md): busca em arquivos pela linha de comando | 05 |
-| 2 | Biblioteca de parsing com testes | 09 |
-| 3 | Gerenciador de tarefas em CLI com persistência em JSON | 09 |
+| 2 | [`csvlite`](projetos/02-csvlite/README.md): parser de CSV com aspas e a CLI `csvq` | 09 |
+| 3 | [`tarefas`](projetos/03-tarefas/README.md): gerenciador de tarefas em CLI com persistência em JSON | 09 |
 | 4 | Processador paralelo de arquivos | 11 |
 | 5 | Chat TCP assíncrono | 12 |
 | 6 | API REST com `axum` e `sqlx` (projeto final) | 16 |

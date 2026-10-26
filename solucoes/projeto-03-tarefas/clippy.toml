@@ -1,0 +1,2 @@
+# O lint `unwrap_used` (Cargo.toml) não vale dentro dos testes.
+allow-unwrap-in-tests = true
