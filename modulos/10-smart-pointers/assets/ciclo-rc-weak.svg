@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="440" viewBox="0 0 860 440" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="seta-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="440" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- Parte 1: ciclo -->
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#dc2626">1. Ciclo de Rc: depois que a e b saem de escopo</text>
+  <rect x="24" y="56" width="180" height="44" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="36" y="84" fill="#6b7280">a, b (já saíram)</text>
+  <rect x="300" y="50" width="200" height="70" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2.5"/>
+  <text x="314" y="76" font-weight="bold" fill="#0f172a">No "a"</text>
+  <text x="314" y="100" fill="#0f172a">strong = 1</text>
+  <rect x="600" y="50" width="200" height="70" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2.5"/>
+  <text x="614" y="76" font-weight="bold" fill="#0f172a">No "b"</text>
+  <text x="614" y="100" fill="#0f172a">strong = 1</text>
+  <path d="M500,70 L596,70" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta)"/>
+  <path d="M600,104 L504,104" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta)"/>
+  <text x="514" y="62" font-size="14" fill="#16a34a">Rc</text>
+  <text x="530" y="124" font-size="14" fill="#16a34a">Rc</text>
+  <text x="24" y="156" fill="#334155">Ninguém de fora aponta para os nós, mas cada um mantém o outro com strong = 1.</text>
+  <text x="24" y="178" fill="#334155">O contador nunca chega a 0: o drop nunca roda e a memória vaza (sem corromper nada).</text>
+
+  <line x1="24" y1="204" x2="836" y2="204" stroke="#cbd5e1"/>
+
+  <!-- Parte 2: Weak -->
+  <text x="24" y="238" font-size="17" font-weight="bold" fill="#16a34a">2. A volta com Weak: árvore de pastas</text>
+  <rect x="24" y="262" width="160" height="44" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="290" fill="#0f172a">raiz: Rc&lt;Pasta&gt;</text>
+  <path d="M184,284 L296,284" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta)"/>
+  <rect x="300" y="254" width="200" height="70" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2.5"/>
+  <text x="314" y="280" font-weight="bold" fill="#0f172a">Pasta "home"</text>
+  <text x="314" y="304" fill="#0f172a">strong = 1 · weak = 1</text>
+  <rect x="600" y="254" width="200" height="70" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="2.5"/>
+  <text x="614" y="280" font-weight="bold" fill="#0f172a">Pasta "ana"</text>
+  <text x="614" y="304" fill="#0f172a">strong = 1 · weak = 0</text>
+  <path d="M500,274 L596,274" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#seta)"/>
+  <path d="M600,310 L504,310" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#seta-c)"/>
+  <text x="510" y="266" font-size="14" fill="#16a34a">filhas: Rc</text>
+  <text x="510" y="330" font-size="14" fill="#475569">pai: Weak</text>
+  <text x="24" y="366" fill="#334155">A pasta pai é dona das filhas (Rc); a filha só observa o pai (Weak, que não conta como dono).</text>
+  <text x="24" y="388" fill="#334155">Quando raiz sai de escopo, home vai a strong = 0 e é descartada, levando junto as filhas.</text>
+  <text x="24" y="410" fill="#334155">Para chegar ao pai, a filha chama upgrade(), que devolve None se ele já morreu.</text>
+</svg>

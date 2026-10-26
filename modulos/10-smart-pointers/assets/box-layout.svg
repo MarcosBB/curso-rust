@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="400" viewBox="0 0 860 400" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="seta-l" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f97316"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="860" height="400" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="24" y="34" font-size="17" font-weight="bold" fill="#0f172a">Box&lt;T&gt;: um ponteiro na stack, o valor no heap</text>
+
+  <text x="24" y="72" font-weight="bold" fill="#3b82f6">Stack</text>
+  <text x="430" y="72" font-weight="bold" fill="#f97316">Heap</text>
+  <line x1="410" y1="56" x2="410" y2="380" stroke="#cbd5e1" stroke-dasharray="6 5"/>
+
+  <!-- Box<i32> -->
+  <rect x="24" y="86" width="250" height="56" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="110" font-weight="bold" fill="#0f172a">b: Box&lt;i32&gt;</text>
+  <text x="36" y="132" fill="#334155">ptr (8 bytes) · dono</text>
+  <path d="M274,114 L450,114" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#seta)"/>
+  <rect x="452" y="94" width="110" height="40" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="466" y="119" fill="#0f172a">5 (4 bytes)</text>
+
+  <!-- Expr -->
+  <rect x="24" y="170" width="250" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="36" y="194" font-weight="bold" fill="#0f172a">e: Expr (24 bytes)</text>
+  <text x="36" y="216" fill="#334155">tag = Soma</text>
+  <text x="36" y="238" fill="#334155">Box (esq.) · Box (dir.)</text>
+  <path d="M274,222 C340,222 370,196 450,196" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#seta)"/>
+  <path d="M274,240 C340,240 370,276 450,276" fill="none" stroke="#3b82f6" stroke-width="2.5" marker-end="url(#seta)"/>
+  <rect x="452" y="176" width="150" height="40" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="466" y="201" fill="#0f172a">Expr::Num(1)</text>
+  <rect x="452" y="256" width="170" height="40" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="466" y="281" fill="#0f172a">Expr::Neg(Box)</text>
+  <path d="M622,276 L680,276" fill="none" stroke="#f97316" stroke-width="2.5" marker-end="url(#seta-l)"/>
+  <rect x="682" y="256" width="150" height="40" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+  <text x="696" y="281" fill="#0f172a">Expr::Num(2)</text>
+
+  <!-- Option<Box> -->
+  <rect x="24" y="290" width="250" height="56" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="36" y="314" font-weight="bold" fill="#0f172a">n: Option&lt;Box&lt;i32&gt;&gt; = None</text>
+  <text x="36" y="336" fill="#334155">ptr = 0 (8 bytes, sem tag)</text>
+  <text x="430" y="320" fill="#334155">None não aloca nada: o ponteiro nulo é o None.</text>
+  <text x="430" y="342" fill="#334155">Por isso Option&lt;Box&lt;T&gt;&gt; também tem 8 bytes.</text>
+  <text x="24" y="378" font-size="14" fill="#475569">Quando o dono (verde) sai de escopo, o drop da Box libera o heap, e o de Expr desce a árvore inteira.</text>
+</svg>

@@ -1,0 +1,13 @@
+[package]
+name = "cow-csv"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+
+[dev-dependencies]
+criterion = "0.8"
+
+[[bench]]
+name = "campos"
+harness = false
