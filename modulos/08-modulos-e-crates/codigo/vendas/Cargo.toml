@@ -1,0 +1,21 @@
+[package]
+name = "vendas"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[features]
+default = ["moeda"]
+# Formata valores como "R$ 12,50".
+moeda = []
+# Relatório em texto. Precisa da formatação, então liga `moeda` também.
+relatorio = ["moeda"]
+# Exporta as vendas em JSON. Liga a dependência opcional `serde_json`.
+json = ["dep:serde_json"]
+
+[dependencies]
+serde_json = { version = "1", optional = true }
+
+[[example]]
+name = "relatorio"
+required-features = ["relatorio"]

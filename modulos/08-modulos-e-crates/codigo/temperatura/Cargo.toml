@@ -1,0 +1,13 @@
+[package]
+name = "temperatura"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+description = "Conversões de temperatura: exemplo de documentação e doctests do curso de Rust"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[dependencies]
+
+[lints.rust]
+missing_docs = "warn"

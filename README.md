@@ -41,7 +41,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 05 | [Tratamento de erros](modulos/05-tratamento-de-erros/README.md) | `Result`, `?`, erros customizados, `thiserror` e `anyhow` |
 | 06 | [Traits e generics](modulos/06-traits-e-generics/README.md) | trait bounds, `impl Trait`, `dyn Trait`, traits da std |
 | 07 | [Coleções, iteradores e closures](modulos/07-colecoes-iteradores-e-closures/README.md) | coleções da std, `Fn`/`FnMut`/`FnOnce`, iteradores |
-| 08 | Módulos, crates e organização | visibilidade, workspaces, features, SemVer, documentação |
+| 08 | [Módulos, crates e organização](modulos/08-modulos-e-crates/README.md) | visibilidade, workspaces, features, SemVer, documentação |
 | 09 | Testes e qualidade | testes unitários, de integração e doctests, clippy, CI |
 | 10 | Smart pointers | `Box`, `Rc`, `RefCell`, `Weak`, `Cow`, `Deref` e `Drop` |
 | 11 | Concorrência | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |

@@ -1,0 +1,15 @@
+[package]
+name = "boletim"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[features]
+# Exporta a turma em JSON (escrito à mão, sem dependências).
+json = []
+
+[dependencies]
+
+[lints]
+workspace = true

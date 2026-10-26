@@ -1,0 +1,23 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+# Metadados herdados pelos membros com `campo.workspace = true`.
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+license = "MIT OR Apache-2.0"
+
+# Versões decididas num lugar só. Cada membro ainda declara o que usa.
+[workspace.dependencies]
+nucleo = { path = "crates/nucleo" }
+thiserror = "2"
+
+# Lints herdados pelos membros com `[lints] workspace = true`.
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+dbg_macro = "warn"
