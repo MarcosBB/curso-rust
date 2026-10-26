@@ -1,0 +1,13 @@
+[package]
+name = "csvq"
+description = "Seleciona colunas e conta registros de arquivos CSV."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+csvlite.workspace = true
+
+[lints]
+workspace = true

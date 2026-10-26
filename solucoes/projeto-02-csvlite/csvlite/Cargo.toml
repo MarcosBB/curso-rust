@@ -1,0 +1,21 @@
+[package]
+name = "csvlite"
+description = "Leitor e escritor de CSV com aspas (subconjunto da RFC 4180), feito para estudo."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.8"
+proptest = "1.12"
+rstest = "0.27"
+
+[[bench]]
+name = "parse"
+harness = false
+
+[lints]
+workspace = true
