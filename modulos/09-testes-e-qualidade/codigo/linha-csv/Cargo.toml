@@ -1,0 +1,17 @@
+[package]
+name = "linha-csv"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.8.2"
+proptest = "1.12.0"
+
+# Cada arquivo de benches/ precisa desta seção: o criterion traz o próprio
+# `main`, então o harness padrão (que só funciona na nightly) é desligado.
+[[bench]]
+name = "linha"
+harness = false

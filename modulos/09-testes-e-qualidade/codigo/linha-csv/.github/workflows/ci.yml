@@ -1,0 +1,47 @@
+# Workflow de CI de exemplo (Módulo 09, lição 07).
+#
+# O GitHub só lê workflows em `.github/workflows/` na RAIZ do repositório.
+# Este arquivo, aqui dentro do curso, não roda: copie a pasta `.github/`
+# para a raiz do SEU repositório (onde está o Cargo.toml do projeto).
+#
+# Versões das actions conferidas em 2026-10-15.
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+  # Qualquer aviso do rustc, do clippy ou do rustdoc vira erro (Cargo 1.97+),
+  # sem mexer em RUSTFLAGS e sem invalidar o cache.
+  CARGO_BUILD_WARNINGS: deny
+
+jobs:
+  check:
+    name: fmt, clippy, test, doc
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all --check
+      - run: cargo clippy --all-targets --locked
+      - run: cargo test --locked
+      - run: cargo doc --no-deps --locked
+
+  msrv:
+    name: MSRV (1.96)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # A versão vem do ref: @stable, @nightly, @1.96...
+      - uses: dtolnay/rust-toolchain@1.96
+      - uses: Swatinem/rust-cache@v2
+      # No Cargo 1.96, CARGO_BUILD_WARNINGS é ignorada: este job só confere
+      # se o projeto compila na versão mínima declarada em rust-version.
+      - run: cargo check --all-targets --locked

@@ -1,0 +1,11 @@
+[package]
+name = "outras-ferramentas"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+
+[dev-dependencies]
+insta = "1.49.0"
+rstest = "0.28.0"

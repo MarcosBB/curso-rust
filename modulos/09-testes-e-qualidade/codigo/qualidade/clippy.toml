@@ -1,0 +1,3 @@
+# Configuração do clippy (lição 06). `unwrap` continua proibido no código,
+# mas fica liberado dentro de #[test] e #[cfg(test)].
+allow-unwrap-in-tests = true

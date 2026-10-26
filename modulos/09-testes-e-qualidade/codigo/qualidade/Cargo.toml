@@ -1,0 +1,18 @@
+[package]
+name = "qualidade"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+
+# Lints do projeto inteiro (lição 05). O Cargo repassa cada linha ao rustc/clippy.
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+# O grupo inteiro com prioridade menor, para que as linhas abaixo ganhem dele.
+pedantic = { level = "warn", priority = -1 }
+must_use_candidate = "allow"
+# Um lint de `restriction`, escolhido a dedo (lição 06).
+unwrap_used = "warn"
