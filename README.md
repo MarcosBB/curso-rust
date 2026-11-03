@@ -60,7 +60,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 1 | [`minigrep`](projetos/01-minigrep/README.md): busca em arquivos pela linha de comando | 05 |
 | 2 | [`csvlite`](projetos/02-csvlite/README.md): parser de CSV com aspas e a CLI `csvq` | 09 |
 | 3 | [`tarefas`](projetos/03-tarefas/README.md): gerenciador de tarefas em CLI com persistência em JSON | 09 |
-| 4 | Processador paralelo de arquivos | 11 |
+| 4 | [`contapal`](projetos/04-processador-paralelo/README.md): contador de palavras paralelo (sequencial, canais e `rayon`) | 11 |
 | 5 | Chat TCP assíncrono | 12 |
 | 6 | API REST com `axum` e `sqlx` (projeto final) | 16 |
 
