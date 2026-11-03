@@ -46,9 +46,9 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 10 | [Smart pointers](modulos/10-smart-pointers/README.md) | `Box`, `Rc`, `RefCell`, `Weak`, `Cow`, `Deref` e `Drop` |
 | 11 | [Concorrência](modulos/11-concorrencia/README.md) | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
 | 12 | [Programação assíncrona](modulos/12-async/README.md) | `async`/`await`, tokio, `Pin`, cancelamento |
-| 13 | Tipos e traits avançados | variância, HRTB, typestate, `PhantomData`, idiomas |
+| 13 | [Tipos e traits avançados](modulos/13-tipos-e-traits-avancados/README.md) | variância, HRTB, typestate, `PhantomData`, idiomas |
 | 14 | [Macros](modulos/14-macros/README.md) | `macro_rules!` e macros procedurais |
-| 15 | Unsafe e FFI | raw pointers, invariantes, FFI com C, Miri |
+| 15 | [Unsafe e FFI](modulos/15-unsafe-e-ffi/README.md) | raw pointers, invariantes, FFI com C, Miri |
 | 16 | Ecossistema na prática | `clap`, `serde`, `reqwest`, `axum`, `sqlx`, `tracing` |
 | 17 | Frameworks e bibliotecas | panorama do ecossistema, área por área |
 | 18 | Performance e próximos passos | profiling, perfis do Cargo, wasm, `no_std` |

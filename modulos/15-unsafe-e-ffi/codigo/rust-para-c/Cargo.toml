@@ -1,0 +1,11 @@
+[package]
+name = "rust-para-c"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[lib]
+# "lib": o crate Rust normal (usado pelos testes).
+# "cdylib": biblioteca dinâmica para C (.so, .dylib ou .dll).
+# "staticlib": biblioteca estática para C (.a ou .lib).
+crate-type = ["lib", "cdylib", "staticlib"]
