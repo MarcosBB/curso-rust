@@ -45,7 +45,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 09 | [Testes e qualidade](modulos/09-testes-e-qualidade/README.md) | testes unitários, de integração e doctests, clippy, CI |
 | 10 | [Smart pointers](modulos/10-smart-pointers/README.md) | `Box`, `Rc`, `RefCell`, `Weak`, `Cow`, `Deref` e `Drop` |
 | 11 | [Concorrência](modulos/11-concorrencia/README.md) | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
-| 12 | Programação assíncrona | `async`/`await`, tokio, `Pin`, cancelamento |
+| 12 | [Programação assíncrona](modulos/12-async/README.md) | `async`/`await`, tokio, `Pin`, cancelamento |
 | 13 | Tipos e traits avançados | variância, HRTB, typestate, `PhantomData`, idiomas |
 | 14 | Macros | `macro_rules!` e macros procedurais |
 | 15 | Unsafe e FFI | raw pointers, invariantes, FFI com C, Miri |
@@ -61,7 +61,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 2 | [`csvlite`](projetos/02-csvlite/README.md): parser de CSV com aspas e a CLI `csvq` | 09 |
 | 3 | [`tarefas`](projetos/03-tarefas/README.md): gerenciador de tarefas em CLI com persistência em JSON | 09 |
 | 4 | [`contapal`](projetos/04-processador-paralelo/README.md): contador de palavras paralelo (sequencial, canais e `rayon`) | 11 |
-| 5 | Chat TCP assíncrono | 12 |
+| 5 | [`chat`](projetos/05-chat-tcp/README.md): chat TCP assíncrono com `tokio` | 12 |
 | 6 | API REST com `axum` e `sqlx` (projeto final) | 16 |
 
 Os links da tabela entram à medida que cada módulo fica pronto.

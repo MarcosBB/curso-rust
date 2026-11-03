@@ -1,0 +1,8 @@
+[package]
+name = "tasks-e-join"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+tokio = { version = "1.54", features = ["full"] }

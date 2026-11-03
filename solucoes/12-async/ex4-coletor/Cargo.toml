@@ -1,0 +1,11 @@
+[package]
+name = "ex4-coletor"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+tokio = { version = "1.54", features = ["full"] }
+
+[dev-dependencies]
+tokio = { version = "1.54", features = ["test-util"] }
