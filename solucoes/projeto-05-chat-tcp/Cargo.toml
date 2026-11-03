@@ -1,0 +1,11 @@
+[package]
+name = "chat"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+
+[dependencies]
+futures-util = { version = "0.3.34", features = ["sink"] }
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["full"] }
+tokio-util = { version = "0.7.20", features = ["codec", "rt"] }
