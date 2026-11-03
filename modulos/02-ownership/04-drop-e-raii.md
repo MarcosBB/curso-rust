@@ -193,7 +193,7 @@ As duas formas evitam o aviso de variável não usada, mas fazem coisas diferent
 - `let _ = valor;` **não cria variável nenhuma**. O `_` é um *pattern* que aceita qualquer coisa e não guarda nada. Se o valor era um temporário, ele é descartado no fim da instrução.
 
 > [!WARNING]
-> A diferença parece detalhe até o dia em que o valor é um *guard*. Com `Mutex` (Módulo 11), `let _ = m.lock().unwrap();` adquire o lock e o solta **na mesma linha**, e o código seguinte roda sem proteção. Já `let _guard = m.lock().unwrap();` segura o lock até o fim do escopo. Quando o valor representa um recurso, dê um nome a ele.
+> A diferença parece detalhe até o dia em que o valor é um *guard*. Com `Mutex` (Módulo 11), `let _ = m.lock().unwrap();` adquiriria o lock e o soltaria **na mesma linha**, deixando o código seguinte sem proteção. O erro é tão comum que o compilador o recusa (lint `let_underscore_lock`). Já `let _guard = m.lock().unwrap();` segura o lock até o fim do escopo. Outros *guards* não têm essa rede de proteção. Quando o valor representa um recurso, dê um nome a ele.
 
 ## RAII não é só memória
 

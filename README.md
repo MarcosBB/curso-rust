@@ -44,7 +44,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 08 | [Módulos, crates e organização](modulos/08-modulos-e-crates/README.md) | visibilidade, workspaces, features, SemVer, documentação |
 | 09 | [Testes e qualidade](modulos/09-testes-e-qualidade/README.md) | testes unitários, de integração e doctests, clippy, CI |
 | 10 | [Smart pointers](modulos/10-smart-pointers/README.md) | `Box`, `Rc`, `RefCell`, `Weak`, `Cow`, `Deref` e `Drop` |
-| 11 | Concorrência | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
+| 11 | [Concorrência](modulos/11-concorrencia/README.md) | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
 | 12 | Programação assíncrona | `async`/`await`, tokio, `Pin`, cancelamento |
 | 13 | Tipos e traits avançados | variância, HRTB, typestate, `PhantomData`, idiomas |
 | 14 | Macros | `macro_rules!` e macros procedurais |
