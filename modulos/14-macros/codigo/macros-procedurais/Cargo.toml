@@ -1,0 +1,5 @@
+# Mini-workspace do Módulo 14. Uma crate `proc-macro` só pode exportar macros,
+# então a trait, as macros e o programa de exemplo ficam em crates separadas.
+[workspace]
+resolver = "3"
+members = ["minhas-macros", "linha-csv", "exemplo"]

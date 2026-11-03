@@ -47,7 +47,7 @@ O foco é o que Rust tem de diferente: *ownership*, *borrowing* e *lifetimes*, o
 | 11 | [Concorrência](modulos/11-concorrencia/README.md) | threads, `Send`/`Sync`, `Arc`, `Mutex`, canais, `rayon` |
 | 12 | [Programação assíncrona](modulos/12-async/README.md) | `async`/`await`, tokio, `Pin`, cancelamento |
 | 13 | Tipos e traits avançados | variância, HRTB, typestate, `PhantomData`, idiomas |
-| 14 | Macros | `macro_rules!` e macros procedurais |
+| 14 | [Macros](modulos/14-macros/README.md) | `macro_rules!` e macros procedurais |
 | 15 | Unsafe e FFI | raw pointers, invariantes, FFI com C, Miri |
 | 16 | Ecossistema na prática | `clap`, `serde`, `reqwest`, `axum`, `sqlx`, `tracing` |
 | 17 | Frameworks e bibliotecas | panorama do ecossistema, área por área |
